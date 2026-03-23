@@ -1,0 +1,8 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(sudo npm:*)",
+      "Bash(npx netlify-cli:*)"
+    ]
+  }
+}
