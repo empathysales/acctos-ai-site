@@ -678,21 +678,51 @@
             background: var(--surface-2); border: 1px solid var(--border);
             border-radius: var(--r-lg); padding: 40px 44px;
             margin-bottom: 18px;
-            display: grid; grid-template-columns: 1fr auto;
+            display: grid; grid-template-columns: 1fr 240px;
             gap: 56px; align-items: center;
             transition: border-color 0.3s;
         }
         .built-by-card:hover { border-color: var(--border-2); }
         .built-by-copy { font-size: 15px; color: var(--text-2); line-height: 1.78; }
         .built-by-copy p + p { margin-top: 12px; }
+
+        /* AIAssist company card */
+        .aiassist-card {
+            display: flex; flex-direction: column; align-items: center; gap: 18px;
+            padding: 28px 24px; text-align: center;
+            background: var(--bg); border: 1px solid var(--border-2);
+            border-radius: var(--r-lg);
+            transition: all 0.35s cubic-bezier(0.23, 1, 0.32, 1);
+            position: relative; overflow: hidden; flex-shrink: 0;
+        }
+        .aiassist-card::before {
+            content: ''; position: absolute; inset: 0;
+            background: radial-gradient(circle at 50% 0%, rgba(16,185,129,0.07), transparent 65%);
+            opacity: 0; transition: opacity 0.35s;
+        }
+        .aiassist-card:hover { border-color: var(--accent); transform: translateY(-3px); box-shadow: 0 16px 48px var(--accent-glow); }
+        .aiassist-card:hover::before { opacity: 1; }
+        .aiassist-logo-img {
+            width: 140px; height: auto; display: block;
+            filter: drop-shadow(0 4px 12px rgba(0,0,0,0.4));
+            transition: transform 0.35s cubic-bezier(0.23, 1, 0.32, 1);
+        }
+        .aiassist-card:hover .aiassist-logo-img { transform: scale(1.04); }
+        .aiassist-tagline {
+            font-size: 12px; color: var(--text-3); line-height: 1.55;
+            letter-spacing: 0.01em;
+        }
         .btn-learn {
             display: inline-flex; align-items: center; gap: 9px;
-            background: var(--bg); border: 1px solid var(--border-2);
+            background: var(--surface); border: 1px solid var(--border-2);
             color: var(--text-1); text-decoration: none;
-            font-size: 14px; font-weight: 600; padding: 13px 26px;
-            border-radius: 10px; transition: all 0.25s; white-space: nowrap; flex-shrink: 0;
+            font-size: 13px; font-weight: 600; padding: 10px 20px;
+            border-radius: 8px; transition: all 0.25s; white-space: nowrap;
+            position: relative; z-index: 1;
         }
-        .btn-learn:hover { border-color: var(--accent); color: var(--accent); background: var(--accent-dim); transform: translateY(-1px); box-shadow: 0 8px 24px var(--accent-glow); }
+        .btn-learn svg { transition: transform 0.25s; }
+        .btn-learn:hover { border-color: var(--accent); color: var(--accent); background: var(--accent-dim); box-shadow: 0 4px 16px var(--accent-glow); }
+        .btn-learn:hover svg { transform: translate(2px, -2px); }
         .built-by-tiles {
             display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px;
         }
@@ -860,7 +890,7 @@
         </nav>
         <div class="nav-actions">
             <a href="#" class="btn-ghost">Sign in</a>
-            <a href="#demo" class="btn-nav-cta">Book a demo</a>
+            <a href="https://link.empathysalesgroup.com/widget/bookings/actos_demo_call" target="_blank" rel="noopener noreferrer" class="btn-nav-cta">Book a demo</a>
         </div>
     </div>
 </nav>
@@ -881,7 +911,7 @@
             Acctos AI is an autonomous AI Operating System built for accounting firms. Intelligent agents orchestrate your entire bank statement workflow — from inbox to ledger-ready Excel — with zero manual intervention, in under 60 seconds.
         </p>
         <div class="hero-actions">
-            <a href="#" class="btn-hero-primary">
+            <a href="https://link.empathysalesgroup.com/widget/bookings/actos_demo_call" target="_blank" rel="noopener noreferrer" class="btn-hero-primary">
                 <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
                 Watch live demo
             </a>
@@ -1398,10 +1428,14 @@
                 <p>We partnered closely with accounting firms across the United Kingdom to gain the industry expertise, workflow insights, and iterative feedback that shape every feature in the platform. Their day-to-day challenges are the blueprint for what Acctos AI solves — and their ongoing input drives every release forward.</p>
                 <p>The team at AIAssist.bg is continuously expanding Acctos AI's capabilities, making the platform progressively more powerful and valuable for our clients and trusted partners. Acctos AI is one of the leading products within AIAssist.bg's rapidly growing portfolio — a portfolio that now spans from Los Angeles, California, through London, UK, and all the way to Riyadh, Saudi Arabia.</p>
             </div>
-            <a href="https://aiassist.bg" target="_blank" rel="noopener noreferrer" class="btn-learn">
-                Learn more
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-            </a>
+            <div class="aiassist-card">
+                <img src="aiassist-logo.png" alt="AIAssist.bg — AI Technology Company" class="aiassist-logo-img">
+                <p class="aiassist-tagline">European AI technology company building cutting-edge agentic systems for businesses worldwide.</p>
+                <a href="https://aiassist.bg" target="_blank" rel="noopener noreferrer" class="btn-learn">
+                    Visit AIAssist.bg
+                    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                </a>
+            </div>
         </div>
 
         <div class="built-by-tiles">
@@ -1448,11 +1482,11 @@
         <h2 class="cta-h">Ready to reclaim<br>your team's time?</h2>
         <p class="cta-sub">Book a 30-minute demo. Bring one of your own bank statements. Watch it get processed live, in under 60 seconds — with your own data.</p>
         <div class="cta-actions">
-            <a href="#" class="btn-cta primary">
+            <a href="https://link.empathysalesgroup.com/widget/bookings/actos_demo_call" target="_blank" rel="noopener noreferrer" class="btn-cta primary">
                 <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
                 Book a demo
             </a>
-            <a href="mailto:hello@acctos.ai" class="btn-cta secondary">
+            <a href="https://link.empathysalesgroup.com/widget/bookings/actos_demo_call" target="_blank" rel="noopener noreferrer" class="btn-cta secondary">
                 Talk to the team
             </a>
         </div>

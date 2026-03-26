@@ -2,7 +2,11 @@
   "permissions": {
     "allow": [
       "Bash(sudo npm:*)",
-      "Bash(npx netlify-cli:*)"
+      "Bash(npx netlify-cli:*)",
+      "Bash(node -e \":*)"
+    ],
+    "additionalDirectories": [
+      "/Users/radinapetrova/Desktop"
     ]
   }
 }
